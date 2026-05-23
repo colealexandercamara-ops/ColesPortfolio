@@ -1,0 +1,506 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: black;
+
+    color: white;
+
+    font-family: Consolas;
+
+    overflow-x: hidden;
+
+    cursor: none;
+}
+
+/* LOADING SCREEN */
+
+#loader {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    background: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+
+    animation: loaderFade 5s forwards;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-content h1 {
+    color: cyan;
+
+    text-shadow: 0 0 20px cyan;
+
+    animation: flicker 1s infinite;
+}
+
+.loading-bar {
+    width: 400px;
+    height: 20px;
+
+    border: 1px solid cyan;
+
+    margin-top: 30px;
+
+    overflow: hidden;
+}
+
+.loading-fill {
+    width: 0%;
+    height: 100%;
+
+    background: cyan;
+
+    animation: loading 4s forwards;
+
+    box-shadow: 0 0 20px cyan;
+}
+
+.loading-text {
+    margin-top: 20px;
+
+    color: cyan;
+}
+
+/* LOADER ANIMATIONS */
+
+@keyframes loading {
+
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+
+}
+
+@keyframes loaderFade {
+
+    0% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+}
+
+@keyframes flicker {
+
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+/* CUSTOM CURSOR */
+
+.cursor {
+    width: 20px;
+    height: 20px;
+
+    border: 2px solid cyan;
+
+    border-radius: 50%;
+
+    position: fixed;
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 999999;
+
+    box-shadow: 0 0 20px cyan;
+}
+
+/* SCANLINES */
+
+.scanlines {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+    repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+
+    pointer-events: none;
+
+    z-index: 999;
+}
+
+/* NAVBAR */
+
+nav {
+    position: fixed;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 40px;
+
+    background: rgba(0,0,0,0.7);
+
+    border-bottom: 1px solid cyan;
+
+    z-index: 1000;
+}
+
+.logo {
+    color: cyan;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    text-shadow: 0 0 10px cyan;
+}
+
+nav ul {
+    display: flex;
+
+    gap: 20px;
+
+    list-style: none;
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: cyan;
+
+    text-shadow: 0 0 10px cyan;
+}
+
+/* HERO */
+
+header {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)),
+    url("background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+
+    animation: terminalReveal 2s forwards;
+
+    animation-delay: 4.5s;
+}
+
+/* HERO ANIMATIONS */
+
+@keyframes terminalReveal {
+
+    0% {
+        opacity: 0;
+        transform: scale(1.05);
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px);
+    }
+
+}
+
+header h1 {
+    font-size: 100px;
+
+    margin: 0;
+
+    text-shadow:
+    0 0 10px cyan,
+    0 0 30px cyan;
+
+    opacity: 0;
+
+    animation: titleBoot 1.5s forwards;
+
+    animation-delay: 5s;
+}
+
+@keyframes titleBoot {
+
+    0% {
+        opacity: 0;
+        letter-spacing: 20px;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        letter-spacing: 5px;
+        transform: translateY(0px);
+    }
+
+}
+
+header p {
+    color: cyan;
+
+    font-size: 22px;
+
+    opacity: 0;
+
+    animation: subtitleBoot 2s forwards;
+
+    animation-delay: 5.8s;
+}
+
+@keyframes subtitleBoot {
+
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+}
+
+/* BUTTON */
+
+.btn {
+    margin-top: 30px;
+
+    padding: 15px 30px;
+
+    border: 1px solid cyan;
+
+    color: cyan;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: cyan;
+
+    color: black;
+
+    box-shadow: 0 0 20px cyan;
+}
+
+/* CARDS */
+
+.card {
+    margin: 50px;
+
+    padding: 40px;
+
+    background: rgba(10,20,20,0.8);
+
+    border: 1px solid cyan;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 0 20px cyan;
+}
+
+h2 {
+    color: cyan;
+
+    text-shadow: 0 0 10px cyan;
+}
+
+/* SKILLS */
+
+.bar {
+    width: 100%;
+    height: 20px;
+
+    background: #111;
+
+    margin-bottom: 20px;
+
+    border: 1px solid cyan;
+}
+
+.fill {
+    height: 100%;
+
+    background: cyan;
+
+    animation: load 2s;
+}
+
+.html {
+    width: 90%;
+}
+
+.css {
+    width: 80%;
+}
+
+.js {
+    width: 70%;
+}
+
+.csharp {
+    width: 75%;
+}
+
+@keyframes load {
+
+    from {
+        width: 0;
+    }
+
+}
+
+/* TOOLS */
+
+.tools-list li {
+    margin-bottom: 10px;
+}
+
+/* FORM */
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+input,
+textarea {
+    padding: 15px;
+
+    background: black;
+
+    border: 1px solid cyan;
+
+    color: white;
+
+    font-family: Consolas;
+}
+
+button {
+    padding: 15px;
+
+    background: black;
+
+    border: 1px solid cyan;
+
+    color: cyan;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background: cyan;
+
+    color: black;
+}
+
+#form-message {
+    margin-top: 15px;
+
+    color: cyan;
+
+    text-shadow: 0 0 10px cyan;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    border-top: 1px solid cyan;
+
+    color: cyan;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 45px;
+    }
+
+    .loading-bar {
+        width: 250px;
+    }
+
+    .card {
+        margin: 20px;
+    }
+
+}
